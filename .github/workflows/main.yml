@@ -8,10 +8,8 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [windows-latest, macOS-latest]
         include:
-          - os: ubuntu-latest
-            output-name: hello-linux
           - os: macOS-latest
             output-name: hello-mac
           - os: windows-latest
