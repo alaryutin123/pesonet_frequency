@@ -11,9 +11,9 @@ jobs:
         os: [windows-latest, macOS-latest]
         include:
           - os: macOS-latest
-            output-name: hello-mac
+            output-name: pesonet-mac
           - os: windows-latest
-            output-name: hello-windows.exe
+            output-name: pesonet-windows.exe
 
     steps:
       - uses: actions/checkout@v1
