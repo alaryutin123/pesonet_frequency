@@ -23,5 +23,5 @@ jobs:
       - run: dart2native bin/main.dart -v -o build/${{ matrix.output-name }}
       - uses: actions/upload-artifact@v1
         with:
-          name: native-executables
+          name: pesonet_check
           path: build
