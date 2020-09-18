@@ -1,5 +1,11 @@
-# Compiling Dart to Native Executables for Windows, Linux and macOS using GitHub Actions
+# PESONet account transaction frequency validation
 
-This is a sample repo that compiles a simple Dart script to native executables for Windows, Linux and macOS using GitHub actions, collecting the binaries in a artifact zip file for easy downloading.
+Very simple native app for MacOS and Windows to check how many times the account is present in the processed file(s).
+The frequency is something to validate, depending on the risk requirements
 
-For more info, see [Compiling Dart to Native Executables for Windows, Linux and macOS with GitHub Actions](https://blog.dantup.com/2019/11/easily-compiling-dart-to-native-executables-for-windows-linux-macos-with-github-actions/)
+#Usage 
+
+--file=<filename>     File to process. Can only be a .CSV file from Pesonet or the directory containing the CSV files.
+                      (defaults to ".")
+--freq=<frequency>    Check the frequency. Any account with above or equal to this frequency of entries will be highlighted in the script output
+                      (defaults to "3")
