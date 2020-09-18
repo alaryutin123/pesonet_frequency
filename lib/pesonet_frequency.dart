@@ -44,7 +44,12 @@ class Worker {
 
   void processingOutput() {
     int count = 0;
-    records.forEach((key, value) {
+
+    final sortedMap = Map.fromEntries(
+        records.entries.toList()
+          ..sort((e1, e2) => e2.value.compareTo(e1.value)));
+
+    sortedMap.forEach((key, value) {
       if (value >= frequency) {
         print('Account $key has ${value} entries');
         count++;
