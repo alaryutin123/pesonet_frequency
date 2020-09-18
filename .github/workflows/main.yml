@@ -21,6 +21,7 @@ jobs:
       - run: pub get
       - run: mkdir build
       - run: dart2native bin/main.dart -v -o build/${{ matrix.output-name }}
+      - run: chmode +x build/${{ matrix.output-name }}
       - uses: actions/upload-artifact@v1
         with:
           name: pesonet_check
