@@ -1,0 +1,8 @@
+name: pesonet_frequency
+
+environment:
+  sdk: '>=2.6.0 <3.0.0'
+
+dependencies:
+  args: ^1.5.0
+  csv: ^4.0.3

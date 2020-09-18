@@ -1,4 +1,4 @@
-name: Build on Push
+name: Native
 
 on: [push]
 
@@ -8,14 +8,12 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [windows-latest, macOS-latest]
         include:
-          - os: ubuntu-latest
-            output-name: hello-linux
           - os: macOS-latest
-            output-name: hello-mac
+            output-name: pesonet-mac
           - os: windows-latest
-            output-name: hello-windows.exe
+            output-name: pesonet-windows.exe
 
     steps:
       - uses: actions/checkout@v1
