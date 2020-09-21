@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:args/args.dart';
 import 'package:pesonet_frequency/pesonet_frequency.dart';
 
@@ -22,5 +24,14 @@ void main(List<String> arguments) async {
   print('\n---------------------------------------------------------------\n\n');
 
   await Worker(path: fileName, frequency: frequency).run();
+
+  print('Press any key to exit');
+
+  var input = stdin;
+
+  var subs;
+  subs = input.listen((line) {
+    exit(0);
+  });
 
 }
