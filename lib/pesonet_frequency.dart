@@ -13,7 +13,7 @@ class Worker {
   final blacklisted = List<String>();
 
   final outputFile =
-      File('${DateFormat('yyyyMMdd-HH:mm:ss').format(DateTime.now())}.log');
+      File('${DateFormat('yyyyMMdd-HHmmss').format(DateTime.now())}.log');
 
   final Logger logger = new Logger('PesonetFrequency');
 
