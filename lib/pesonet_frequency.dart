@@ -98,23 +98,31 @@ class Worker {
   }
 
   void processCSVRecordsFrequency(List<List> fields) {
-    fields.forEach((line) {
-      final seq = line[0];
-      final sender = '${line[14]}';
-      if (sender.trim() == null || sender.trim() == '0') {
-        blacklisted.add(seq);
-      } else {
-        final account = '${line[3]}:${line[14]}';
+    for (int i = 1; i < fields.length; i++) {
+      try {
+        final line = fields[i];
+        final seq = '${line[0]}';
+        final sender = '${line[14]}';
+        if (sender.trim() == null || sender.trim() == '0') {
+          blacklisted.add(seq);
+        } else {
+          final account = '${line[3]}:${line[14]}';
+          //Excluding whitelisted accounts
 
-        if (whitelisted.indexOf(account) < 0) {
-          _processFrequency(seq, account, senderFrequencyRecords);
+          if (!whitelisted.contains(account)) {
+            _processFrequency(seq, account, senderFrequencyRecords);
+            var min = '${line[15]}';
+            //Removing the heading 0
+            min = min.startsWith('0') ? min.substring(1) : min;
+            _processFrequency(seq, min, receiverFrequencyRecords);
+          }
         }
-        var min = '${line[15]}';
-        //Removing the heading 0
-        min = min.startsWith('0') ? min.substring(1) : min;
-        _processFrequency(line[0], min, receiverFrequencyRecords);
+      } on RangeError catch (e) {
+        print('The following error occured: ${e.toString()}. Line: ${i + 1}');
+      } on Exception catch (e) {
+        print('The following error occured: ${e.toString()}. Line: ${i + 1}');
       }
-    });
+    }
   }
 
   void _processFrequency(
