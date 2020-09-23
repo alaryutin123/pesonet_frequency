@@ -4,6 +4,7 @@ import 'package:csv/csv.dart';
 import 'package:intl/intl.dart';
 import 'package:logging/logging.dart';
 
+//Main worker class to do stuff
 class Worker {
   final List<String> whitelisted = ['DBPHPHMMXXX:010590018'];
   final String path;
